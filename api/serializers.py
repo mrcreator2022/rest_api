@@ -3,5 +3,6 @@ from .models import Employee
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
-        model =Employee
-        fields = '__all__'
+        model = Employee
+        #fields = '__all__'
+        fields = ['id','fullname','emp_code','mobile']

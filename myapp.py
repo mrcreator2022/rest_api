@@ -1,69 +1,10 @@
 import requests
 import json
 
-########create##############
 
-# URL =  "http://localhost:8000/driver_create/"
+URL =  "http://localhost:1234/employeeapi/"
 
-# data = {
-#     'first_name':'veer',
-#     'last_name':'yadav',
-#     'email':'amit@gmail.com',
-#     'password':"amin@123",
-#     'phone_number':8689876769,
-#     'address':'rau',
-#     'vehicle_registration_number':'KG%&*R^%BV',
-#     'driving_licence_number':'2432HHGHGJH3',
-#     'registration_card_photo':'./Screenshot_from_2022-01-17_11-49-41.png',
-#     'driving_licence_photo':'./Screenshot_from_2022-02-03_12-39-17.png',
-
-# }
-
-# json_data = json.dumps(data)
-# r = requests.post(url = URL, data = json_data)
-
-# data = r.json()
-# print(data)
-
-# ######update##########
-
-# URL =  "http://localhost:8000/driver_update/"
-
-# data = {
-#     'id':4, 
-#     'first_name':'vinay',
-#     'last_name':'tiwari',
-#     'email':'amit@gmail.com',
-#     'password':"amin@123",
-#     'phone_number':8689876769,
-#     'address':'indore',
-#     'vehicle_registration_number':'KG%&*R^%BV',
-#     'driving_licence_number':'2432HHGHGJH3',
-#     # 'registration_card_photo':'./Screenshot_from_2022-01-17_11-49-41.png',
-#     # 'driving_licence_photo':'./Screenshot_from_2022-02-03_12-39-17.png',
-
-# }
-
-# json_data = json.dumps(data)
-# r = requests.put(url = URL, data = json_data)
-
-# data = r.json()
-# print(data)
-
-########delete##############
-
-# URL =  "http://localhost:8000/driver_delete/"
-
-# data = {'id':1,}
-
-# json_data = json.dumps(data)
-# r = requests.delete(url = URL, data = json_data)
-
-# data = r.json()
-# print(data)
-
-URL =  "http://localhost:1234/studentapi/"
-
+########Get##############
 def get_data(id =None):
     data ={}
     if id is not None:
@@ -76,11 +17,12 @@ def get_data(id =None):
     
 # get_data()
 
+########create##############
 def post_data():
     data ={
-        "name": "Veer",
-        "roll": "01",
-        "city": "indore"
+        "fullname": "gg",
+        "emp_code": "2",
+        "mobile": "9856321456"
     }
 
     headers = {'content-Type':'application/json'}
@@ -90,4 +32,35 @@ def post_data():
     data = r.json()
     print(data)
 
-post_data()
+    post_data()
+
+# ######update##########
+
+def updated_data():
+    data = {
+        "id":4, 
+        "fullname":"vinay",
+        "emp_code":"06",
+        "mobile":"6958745214"
+    }
+
+    headers = {'content-Type':'application/json'}
+
+    json_data = json.dumps(data)
+    r = requests.put(url = URL, headers=headers, data = json_data)
+    data = r.json()
+    print(data)
+
+    # updated_data()
+
+
+########delete##############
+def delete_data():
+    data = { "id":1 }
+    headers = {'content-Type':'application/json'}
+    json_data = json.dumps(data)
+    r = requests.delete(url = URL, headers=headers, data = json_data)
+    data = r.json()
+    print(data)
+
+    # delete_data()
